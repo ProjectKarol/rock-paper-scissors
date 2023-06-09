@@ -73,18 +73,16 @@ function resetAudio(player) {
 
 // ----------------------GAME----------------------
 
-// Counting score
-var playerScore = 0;
-var computerScore = 0;
+// Counting score 
+let playerScore = 0;
+let computerScore = 0;
+let moves = 0;
 
 let userChoice = "";
 let computerChoice = "";
-let result = [userChoice, computerChoice];
-
 let emojis = ["✂️ ", "📄", "🪨", "🦎", "🖖🏻"];
 let currentEmojiNumber = 0;
-
-let shuffleIntervalID = setInterval(shuffleEmojis, 150);
+let shuffleIntervalID;
 
 let userChoiceContainer = document.querySelector("#player-choice-container");
 let emojiShuffleElement = document.querySelector("#emoji-shuffle");
@@ -93,11 +91,18 @@ userChoiceContainer.addEventListener("click", handlePlayerChoice);
 
 // Function to get player choice
 function handlePlayerChoice(event) {
-      if (!event.target.classList.contains("emoji")) return;
+      if (!event.target.classList.contains("emoji") || moves >= 10) return;
       userChoice = event.target.textContent;
       userChoiceContainer.innerHTML = `<p class="emoji">${userChoice}</p>`;
       clearInterval(shuffleIntervalID);
+      moves++;
+      document.querySelector('.movesleft').innerText = `Moves Left: ${10 - moves}`;
       determineWinner();
+      if (moves == 10) {
+            gameOver();
+      } else {
+            shuffleIntervalID = setInterval(shuffleEmojis, 150);
+      }
 }
 
 // Function to return a random emoji from the dictionary and  genenerate computer choice.
@@ -108,23 +113,9 @@ function shuffleEmojis() {
       if (currentEmojiNumber < emojis.length - 1) {
             currentEmojiNumber++;
       } else {
-      currentEmojiNumber = 0;
+            currentEmojiNumber = 0;
       }
 }
-
-// Function to start playing game
-playGame.forEach((option) => {
-      option.addEventListener("click", function () {
-            let movesLeft = document.querySelector(".movesleft");
-            moves++;
-            movesLeft.innerText = `Moves Left: ${10 - moves}`;
-
-    // Calling gameOver function after 10 moves
-            if (moves == 10) {
-                  gameOver(playerOptions, movesLeft);
-            }
-      });
-});
 
 // Function to compare user and computer choices and determin game winner.
 function determineWinner() {
@@ -224,8 +215,18 @@ function determineWinner() {
       gameResultMessageElement.textContent = gameResultMessage;
 }
 
-// Calling the game function
-game();
+// Function to end the game and determine the winner.
+function gameOver() {
+      if (playerScore > computerScore) {
+            window.location.href = "win.html";  // Redirect browser to win.html or add your own winning page or custom function
+      } else {
+            window.location.href = "lose.html"; // Redirect browser to lose.html or add your own losing page or custom function
+      }
+}
+
+// Function to shuffle emojis in the game.
+shuffleIntervalID = setInterval(shuffleEmojis, 150);
+
 
 // Countdown animation from hyperjump.html
 
