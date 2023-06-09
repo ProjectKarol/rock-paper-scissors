@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- fontawesome and google fonts -->
+    <script src="https://kit.fontawesome.com/84c12be1a5.js" crossorigin="anonymous"></script>    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Ubuntu&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Game</title>
+
+    <!-- Link for the website favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/images/favicon (1).png" style="border-radius:50%;">
+
+    <!-- Link to animate.css website -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+</head>
+
+<body>
+
+    <!--Add fast forward glyphicon to the next  page -->
+    
+        <a href="./assets/hyperjump.html">
+            <span class="glyphicon glyphicon-fast-forward"><i class="fa-solid fa-forward" style="color: #e6c54d;"><abbr title=""></abbr></i></span>
+        </a>
+    
+
+    <!--Add audio-->
+    <div class="audio-section">
+        <audio id="player">
+            <source src="/assets/audio/audio.mp3" type="audio/mp3">
+            This HTML5 player is not supported by your browser
+        </audio>
+
+        <span><i class="fa-solid fa-volume-high fa-l" style="color: #e6c54d;"  style="cursor: pointer" name="play" id="playbutton_player" onClick="playAudio('player')" onMouseover="playbutton_player.src='play-over.png'" onMouseout="playbutton_player.class='fa-solid fa-volume-high fa-2xl'"></i></span>        
+        <span id="x" style="display: none;"><i class="fa-solid fa-volume-xmark fa-l" style="color: #e6c54d;"  class="x-volume" name="pause"  onClick="pauseAudio('player')" onMouseover="pausebutton_player.class='fa-solid fa-volume-xmark fa-2xl'" onMouseout="pausebutton_player.src='pause.png'" ></i></span>  
+        
+        
+        <div>
+            <button onClick="document.getElementById('player').volume -= 0.2" class="controle-btn"><span><i class="fa-solid fa-volume-low"></i> <i class="fa-solid fa-minus fa-2xs"></i></span></button>
+            <button onClick="resetAudio('player')" name="reset" id="resetbutton_player"  class="controle-btn"><span><i class="fa-solid fa-arrow-rotate-right fa-sm" style="color: #de1b42;" ></i></span></button>
+            <button onClick="document.getElementById('player').volume += 0.2" class="controle-btn"><span><i class="fa-solid fa-volume-high"></i> <i class="fa-solid fa-plus fa-2xs"></i></span></button>
+         </div>
+    </div>   
+
+
+    <section>
+       <p id="intro1">A long time ago, in a galaxy far,<br> far away.... </p> 
+       <p id="intro2">The Dark Forces conquered the planet Gnies!</p>
+       <p id="intro3"> In order to free the planet you need to win Rock, Paper, Scissors, Lizard, Spock Game.</p>
+       <p id="intro4"> Help innocennt ones and restore freedom and justice to the Galaxy. </p> 
+       <p id="intro5">Good Luck in your quest !!</p>
+    </section> 
+
+    <!-- Text of the openinng -->
+    <section id="board">  
+        <div id="content">
+            <p id="title">Game</p>
+            <p id="subtitle">Rock, Paper, Scissors, Lizard, Spock  </p>
+            <br>
+    <!-- Explanations of game rules -->
+            <p id="rules">5 Basic Rules !! </p>
+            <br>
+            <p>1. Throw rock to crush scissors or lizard. To make a rock, keep your hand in a fist. Rock wins against scissors or lizard, but loses to paper or Spock. Rock is thst common object to throw in the game. If you want to win, avoid throwing rock the first time you play.</p>
+            <p>2. Use paper to cover rock or disprove Spock. Fully extend your fingers and hold them together so your palm faces down to form paper. Paper wins a game against rock and Spock, but loses to scissors and lizard.</p>
+            <p>3. Play scissors to cut paper or decapitate lizard. Stick out your index and middle finger to make a pair of scissors with your hand. Scissors wins the game against paper and lizard, but loses to rock and Spock.</p>
+            <p>4. Choose lizard to eat paper or poison Spock. Put your four fingers together and make a “mouth” with your thumb. Lizard wins games against paper or Spock, but loses to scissors and rock.</p>
+            <p>5. Use Spock to vaporize rock or smash the scissors. Make the Vulcan salute by holding your index and middle finger together. Hold your ring finger and pinkie together, leaving a space between your middle and ring finger. Spock wins against rock or scissors, but loses to lizard and paper.</p>    
+        </div>
+    </section>
+     
+    <!-- START game button with animation -->
+    <div id="bt">
+        <button class = "button">
+            <a href="./assets/game.html">Start</a> 
+        </button>
+    </div>
+    
+    
+    <script src="assets/js/script.js"></script>
+
+    <!-- font awesome script  -->
+    <script src="https://kit.fontawesome.com/84c12be1a5.js" crossorigin="anonymous"></script>
+</body>
+</html>

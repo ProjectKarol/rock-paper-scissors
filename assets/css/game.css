@@ -1,0 +1,425 @@
+/* Add styling to body of game.html*/
+
+
+html, body{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    margin: 0;
+    display: block;
+  }
+  
+  body{
+    background: #000;
+    text-align: center;
+    font-size: calc(15px + 0.390625vw);
+    font-family: 'Russo One', sans-serif;
+    color: white;
+  }
+  
+
+
+  .star {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    background-color: white;
+  }
+
+
+/* Hyperspace animation and styling */
+
+
+
+.wall{
+  background: url('/assets/images/space.jpg') ;
+  background-size: cover;
+
+}
+
+
+
+.scene{
+    display: inline-block;
+    vertical-align: middle;
+    perspective: 5px;
+    perspective-origin: 50% 50%;
+    position: relative;
+    margin: 24% 48%;
+  }
+  
+  .wrap{
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    left: -500px;
+    top: -500px;
+    transform-style: preserve-3d;
+    animation: move 10s ;
+    animation-fill-mode: forwards;
+    z-index: 2;
+    
+  }
+  
+  .wrap:nth-child(2){
+    animation: move 10s ;
+    animation-delay: 1s;
+  }
+  
+  .wall {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+    animation: fade 12s ;
+    animation-delay: 0s;
+    z-index: 3;
+  }
+  
+  .wrap:nth-child(2) .wall {
+    animation-delay: 1s;
+  }
+  
+  .wall-right {
+    transform: rotateY(90deg) translateZ(500px);
+  }
+  
+  .wall-left {
+    transform: rotateY(-90deg) translateZ(500px);
+  }
+  
+  .wall-top {
+    transform: rotateX(90deg) translateZ(500px);
+  }
+  
+  .wall-bottom {
+    transform: rotateX(-90deg) translateZ(500px);
+  }
+  
+  .wall-back {
+    transform: rotateX(180deg) translateZ(500px);
+  }
+  
+  @keyframes move {
+    0%{
+      transform: translateZ(-500px) rotate(0deg);
+    }
+    100%{
+      transform: translateZ(500px) rotate(0deg);
+    }
+  }
+  
+  @keyframes fade {
+    0%{
+      opacity: 0;
+    }
+    25% {
+      opacity: 1;
+    }
+    75% {
+      opacity: 1;
+    }
+    100%{
+      opacity: 0;
+    }
+  }
+
+
+/*  ---------------countdown ----------------------*/
+
+/*Add styling to countdown element*/
+#count-down {
+  position:relative;
+  z-index: 5;
+  left: -100px;
+  top: -180px;
+  color: rgb(75, 213, 238);
+  text-align: center;
+  min-height: 100vh;
+  counter-reset: my-count 5;
+  animation: counter 5s;
+  animation-delay: 2s;
+  display: block;
+  
+  
+  &::after {
+    content: counter(my-count);
+    font-size: 15em;
+  }
+}
+/*Animation for countdwon from 5 */
+@keyframes counter {
+  0% {
+    opacity: 0;
+  }
+  0% {
+    opacity: 1;
+  }
+  20% {
+    counter-increment: my-count -1;
+    opacity: 1;
+  }
+  40% {
+    counter-increment: my-count -2;
+    opacity: 1;
+  }
+  60% {
+    counter-increment: my-count -3;
+    opacity: 1;
+  }
+  80% {
+    counter-increment: my-count -4;
+    opacity: 1;
+  }
+  80% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+@-webkit-keyframes counter {
+  0% {
+  opacity: 1;
+  }
+  99% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}
+
+
+
+
+/* ----------hyper links to next or prevoiuse page*/
+
+i.fa-solid.fa-backward {
+  position: absolute;
+  z-index: 4;
+  margin-top: 2%;
+  margin-left: 1%;
+  font-size: 150%;
+}
+
+i.fa-solid.fa-forward {
+  position: absolute;
+  z-index: 4;
+  margin-top: 2%;
+  margin-left: 6%;
+  font-size: 150%;
+}
+  /*----------game layout--------------*/
+
+h4{
+    font-size: 25px;
+    color: #e6c54d;  
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+#game_name {
+  background-color: rgb(75, 213, 238);
+  width: 97%;
+  margin: 0 auto;
+  border-radius: 20px;
+  padding: 5px;
+}
+
+h1{
+    margin-top: 2px;
+    font-size: 225%;
+    margin-bottom: 10px;
+    color: black;
+
+}
+
+h2 {
+    height: 48px;
+    font-size: 36px;
+    color: white;
+    color:  #e6c54d;
+
+}
+
+main {
+    display: inline-flex;
+    justify-content: space-around;
+    width: 100%;   
+    margin: 2% auto;
+    color: black;    
+}
+
+h3{
+    font-size: 46px;
+    color:rgb(75, 213, 238);
+    padding: 20px;
+}
+
+
+
+
+
+.game-container {
+    background-color: rgb(75, 213, 238);
+    border-radius: 20px;
+    padding: 0px;
+    margin: 10px;
+    font-size: 32px;
+    width: 100%;
+    height: fit-content;
+}
+
+.choice-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+    height: 100px;
+    padding: 10px;
+}
+
+.emoji {
+    font-size: 60px;
+    margin-top: 40px;
+}
+
+
+/* Reload button style */
+.reload {
+  display: none;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: green;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  }
+
+/* Add styling to the button to show game result*/
+#game-result-message {
+  background-color: rgb(75, 213, 238);
+  width: 94%;
+  margin: 2% auto;
+  border-radius: 20px;
+  padding: 20px;
+  color: black;
+
+}
+  
+.score {
+    width: 97%;
+    height: 100px;
+    margin: 0 auto;
+    font-size: 20px;
+    border-radius: 20px;
+    color: #e6c54d;
+    display: inline-flex;
+    justify-content: space-around;
+}  
+
+.score h2 {
+  font-size: 25px;
+  margin: 0;
+}
+
+p.c-count.count {
+  margin: 0;
+}
+
+p.p-count.count {
+  margin: 0;
+}
+
+
+/*---------MODAL (W3School)---------*/
+
+.modal {
+  display: none; 
+  position: fixed; 
+  z-index: 1; 
+  padding-top: 100px; 
+  left: 0;
+  top: 0;
+  width: 100%; 
+  height: 100%; 
+  overflow: auto; 
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.4); 
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: rgb(75, 213, 238);
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 20px;
+  width: 80%;
+
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 50px;
+ 
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-content h3 {
+  color: black;
+  font-size: 25px;
+  margin-top: 5px;
+}
+  
+.modal-content p {
+  color: black;
+  text-transform: uppercase;
+}  
+
+/* Modal button */
+#myBtn {
+    margin-top: 10px;
+    margin-right: 10px;
+    background-color: #e6c54d;
+    border-radius: 20px;
+    padding: 10px;
+    font-family: 'Russo One', sans-serif;
+    position: absolute;
+    right: 0;
+}
+
+@media only screen and (max-width: 600px) {
+  body {
+   font-size: 0%;
+  }
+}
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
